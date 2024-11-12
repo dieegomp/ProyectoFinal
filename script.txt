@@ -1,0 +1,56 @@
+create database vacaciones_manoli;
+use vacaciones_manoli;
+
+CREATE TABLE hoteles (
+    id_hotel INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    categoria VARCHAR(50),
+    precio int,
+    disponible BOOLEAN
+);
+
+CREATE TABLE vuelos (
+    id_vuelo INT AUTO_INCREMENT PRIMARY KEY,
+    empresa VARCHAR(100),
+    fecha_vuelo DATE,
+    precio int,
+    plazas_disponibles INT
+);
+
+
+CREATE TABLE reservas (
+    id_reserva INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_cliente VARCHAR(100),
+    dni VARCHAR(10),
+    id_hotel INT,
+    id_vuelo INT,
+    FOREIGN KEY (id_hotel) REFERENCES hoteles(id_hotel),
+    FOREIGN KEY (id_vuelo) REFERENCES vuelos(id_vuelo)
+);
+
+INSERT INTO hoteles (nombre, categoria, precio, disponible)
+VALUES
+('Plaza', '5 estrellas', 250, TRUE),
+('City', '4 estrellas', 180, TRUE),
+('Beach', '3 estrellas', 120, FALSE),
+('Luxe', '5 estrellas', 350, TRUE),
+('Budget', '2 estrellas', 80, TRUE),
+('Boutique', '4 estrellas', 220, FALSE),
+('Resort', '5 estrellas', 400, TRUE),
+('Urban', '3 estrellas', 150, TRUE),
+('Classic', '4 estrellas', 200, FALSE),
+('Moderno', '5 estrellas', 300, TRUE);
+
+
+INSERT INTO vuelos (empresa, fecha_vuelo, precio, plazas_disponibles)
+VALUES
+('Iberia', '2024-11-15', 200, 150),
+('Ryanair', '2024-11-20', 150, 100),
+('Vueling', '2024-11-25', 250, 120),
+('Air Europa', '2024-12-01', 300, 180),
+('Lufthansa', '2024-12-05', 350, 200),
+('British Airways', '2024-12-10', 400, 220),
+('Air France', '2024-12-15', 450, 250),
+('KLM', '2024-12-20', 500, 280),
+('Swiss', '2024-12-25', 550, 300),
+('Turkish Airlines', '2025-01-01', 600, 320);
