@@ -7,6 +7,6 @@ import com.viewnext.model.Reserva;
 public interface ReservaService {
 
 void realizarReservas(Reserva reserva);
-List<Reserva> devolverReservas(String nombreHotel);
+public List<Reserva> devolverReservas(String nombreHotel);
 
 }

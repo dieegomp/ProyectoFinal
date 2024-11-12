@@ -23,4 +23,10 @@ public class HotelServiceImpl implements HotelService {
 		return repo.findByNombre(nombre);
 	}
 
+	@Override
+	public int hotelesID(String nombre) {
+		Hotel hotel = repo.findByNombre(nombre);
+		return hotel.getIdHotel();
+	}
+
 }

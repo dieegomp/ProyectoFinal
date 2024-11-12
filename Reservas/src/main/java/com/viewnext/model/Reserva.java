@@ -1,5 +1,7 @@
 package com.viewnext.model;
 
+import java.util.Objects;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,18 +22,32 @@ private String dni;
 private int idVuelo;
 @Column(name="id_hotel")
 private int idHotel;
+@Column(name = "num_personas_que_forman_reserva")
+private int numPersonaQueFormanReserva;
 
 public Reserva() {
 	super();
 }
-public Reserva(int idReserva, String nombreCliente, String dni, int idVuelo, int idHotel) {
+
+public Reserva(int idReserva, String nombreCliente, String dni, int idVuelo, int idHotel,
+		int numPersonaQueFormanReserva) {
 	super();
 	this.idReserva = idReserva;
 	this.nombreCliente = nombreCliente;
 	this.dni = dni;
 	this.idVuelo = idVuelo;
 	this.idHotel = idHotel;
+	this.numPersonaQueFormanReserva = numPersonaQueFormanReserva;
 }
+
+public int getNumPersonaQueFormanReserva() {
+	return numPersonaQueFormanReserva;
+}
+
+public void setNumPersonaQueFormanReserva(int numPersonaQueFormanReserva) {
+	this.numPersonaQueFormanReserva = numPersonaQueFormanReserva;
+}
+
 public int getIdReserva() {
 	return idReserva;
 }
@@ -61,6 +77,31 @@ public int getIdHotel() {
 }
 public void setIdHotel(int idHotel) {
 	this.idHotel = idHotel;
+}
+
+@Override
+public int hashCode() {
+	return Objects.hash(dni, idHotel, idReserva, idVuelo, nombreCliente, numPersonaQueFormanReserva);
+}
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	Reserva other = (Reserva) obj;
+	return Objects.equals(dni, other.dni) && idHotel == other.idHotel && idReserva == other.idReserva
+			&& idVuelo == other.idVuelo && Objects.equals(nombreCliente, other.nombreCliente)
+			&& numPersonaQueFormanReserva == other.numPersonaQueFormanReserva;
+}
+
+@Override
+public String toString() {
+	return "Reserva [idReserva=" + idReserva + ", nombreCliente=" + nombreCliente + ", dni=" + dni + ", idVuelo="
+			+ idVuelo + ", idHotel=" + idHotel + ", numPersonaQueFormanReserva=" + numPersonaQueFormanReserva + "]";
 }
 
 

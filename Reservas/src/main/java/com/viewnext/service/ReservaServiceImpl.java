@@ -20,12 +20,13 @@ public class ReservaServiceImpl implements  ReservaService {
 	@Override
 	public void realizarReservas(Reserva reserva) {
 		repo.save(reserva);
-			template.put(url2 +"1/50" reserva);
+			template.put(url2 +"1/50", reserva);
 	}
 
 	@Override
 	public List<Reserva> devolverReservas(String nombreHotel) {
-		return repo.findAll();
+		int idHotel = template.getForObject(url1, Integer.class);
+		return repo.findByHotelId(idHotel);
 	}
 
 }
