@@ -30,7 +30,7 @@ public class HotelServiceImpl implements HotelService {
 	}
 
 	@Override
-	public Integer findIdByNombre(String nombre) {
+	public String findIdByNombre(String nombre) {
 		return repo.findIdByNombre(nombre);
 	}
 

@@ -12,5 +12,5 @@ public interface HotelRepository extends JpaRepository<Hotel, Integer> {
 	Hotel findByNombre(String nombre);
     List<Hotel> findByDisponibleTrue();
     @Query("SELECT h.idHotel FROM Hotel h WHERE h.nombre = :nombre")
-    Integer findIdByNombre(@Param("nombre")String nombre);
+    String findIdByNombre(@Param("nombre")String nombre);
 }

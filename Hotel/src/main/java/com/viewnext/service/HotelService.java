@@ -8,5 +8,5 @@ public interface HotelService {
 List<Hotel> allHotel();
 Hotel hotelesPorNombre(String nombre);
 public int hotelesID(String nombre);
-public Integer findIdByNombre(String nombre);
+public String findIdByNombre(String nombre);
 }

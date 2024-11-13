@@ -26,7 +26,7 @@ public class HotelController {
 		return hotelService.hotelesPorNombre(nombre);
 	}
 	@GetMapping(value = "hotelReserva/{nombre}",produces = MediaType.APPLICATION_JSON_VALUE)
-	public int hotelesReservas(@PathVariable String nombre) {
+	public String hotelesReservas(@PathVariable String nombre) {
 		return hotelService.findIdByNombre(nombre);
 	}
 }
