@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.viewnext.model.Reserva;
 
 public interface ReservasRepository extends JpaRepository<Reserva, Integer> {
-	List<Reserva> findByHotelId(int idHotel);
+	List<Reserva> findByidHotel(int idHotel);
 }

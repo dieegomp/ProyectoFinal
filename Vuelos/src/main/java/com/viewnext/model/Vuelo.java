@@ -22,7 +22,7 @@ private String compañia;
 @Column(name="fecha_vuelo")
 private LocalDate fechaVuelo;
 private int precio;
-@Column(name="plazas_libres")
+@Column(name="plazas_disponibles")
 private int plazasLibres;
 
 public Vuelo() {

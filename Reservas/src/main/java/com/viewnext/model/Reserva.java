@@ -88,9 +88,7 @@ public int hashCode() {
 public boolean equals(Object obj) {
 	if (this == obj)
 		return true;
-	if (obj == null)
-		return false;
-	if (getClass() != obj.getClass())
+	if ((obj == null) || (getClass() != obj.getClass()))
 		return false;
 	Reserva other = (Reserva) obj;
 	return Objects.equals(dni, other.dni) && idHotel == other.idHotel && idReserva == other.idReserva

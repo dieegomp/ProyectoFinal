@@ -27,10 +27,8 @@ public class VuelosController {
 		return vueloService.reservarVuelo(idVuelo, numeroPlazas);
 	}
 
-	@PutMapping(value = "vuelo/{idVuelo}/{numeroPlazas}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Vuelo vuelosClaseReserva(@PathVariable int idVuelo, @PathVariable int numeroPlazas) {
+	@PutMapping(value = "vueloReserva/{idVuelo}/{numeroPlazas}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Vuelo vueloReserva(@PathVariable int idVuelo, @PathVariable int numeroPlazas) {
 		return vueloService.reservarVuelo(idVuelo, numeroPlazas);
-
 	}
 }
- 

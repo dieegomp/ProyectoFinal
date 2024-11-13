@@ -15,18 +15,18 @@ public class ReservaServiceImpl implements  ReservaService {
 	ReservasRepository repo;
 	@Autowired
 	RestTemplate template;
-	private String url1 = "http://localhost:9000/hotel";
-	private String url2 = "http://localhost:8000/vuelo";
+	private String url1 = "http://localhost:9000/hotelReserva";
+	private String url2 = "http://localhost:8000/vueloReserva";
 	@Override
 	public void realizarReservas(Reserva reserva) {
 		repo.save(reserva);
-			template.put(url2 +"1/50", reserva);
+		template.put(url2+reserva.getIdVuelo()+"/"+reserva.getNumPersonaQueFormanReserva(), null);
 	}
 
 	@Override
 	public List<Reserva> devolverReservas(String nombreHotel) {
 		int idHotel = template.getForObject(url1, Integer.class);
-		return repo.findByHotelId(idHotel);
+		return repo.findByidHotel(idHotel);
 	}
 
 }

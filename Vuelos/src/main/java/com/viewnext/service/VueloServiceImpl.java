@@ -15,7 +15,8 @@ public class VueloServiceImpl  implements VueloService{
 
 	@Override
 	public List<Vuelo> vuelosConPlazas(int asientos) {
-		return repo.findByPlazasLibres( asientos);
+
+		return repo.findByPlazasLibresGreaterThanEqual(asientos);
 	}
 
 	@Override

@@ -15,10 +15,7 @@ import com.viewnext.service.HotelService;
 public class HotelController {
 	@Autowired
 	private HotelService hotelService;
-	@GetMapping(value = "/",produces = MediaType.APPLICATION_JSON_VALUE)
-	public int hotelesID(@PathVariable String nombre) {
-		return hotelService.hotelesID(nombre);
-	}
+
 	@GetMapping(value = "hotel", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Hotel> hoteles() {
 		return hotelService.allHotel();
@@ -28,5 +25,8 @@ public class HotelController {
 	public Hotel hotelesPorNombre(@PathVariable String nombre) {
 		return hotelService.hotelesPorNombre(nombre);
 	}
-	
+	@GetMapping(value = "hotelReserva/{nombre}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public int hotelesReservas(@PathVariable String nombre) {
+		return hotelService.findIdByNombre(nombre);
+	}
 }

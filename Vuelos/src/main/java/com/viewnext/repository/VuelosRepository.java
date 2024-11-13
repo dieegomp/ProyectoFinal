@@ -7,5 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.viewnext.model.Vuelo;
 
 public interface VuelosRepository extends JpaRepository<Vuelo, Integer> {
-	List<Vuelo> findByPlazasLibres(int asientos);
+    List<Vuelo> findByPlazasLibresGreaterThanEqual(int asientos);
+
 }
